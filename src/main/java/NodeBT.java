@@ -46,19 +46,34 @@ public class NodeBT {
         return false;
     }
 
-    public NodeBT getLCAFromNode(NodeBT nodeBT, int n1, int n2){
+    public NodeBT getLCAFromNode(NodeBT nodeBT, int n1, int n2) {
         if (nodeBT == null) {
             return null;
         }
-        if (nodeBT.data == n1 || nodeBT.data == n2){
+        if (nodeBT.data == n1 || nodeBT.data == n2) {
             return nodeBT;
         }
-        NodeBT left = getLCAFromNode(nodeBT.left,n1, n2);
-        NodeBT right = getLCAFromNode(nodeBT.right,n1, n2);
-        if(left != null && right != null){
+        NodeBT left = getLCAFromNode(nodeBT.left, n1, n2);
+        NodeBT right = getLCAFromNode(nodeBT.right, n1, n2);
+        if (left != null && right != null) {
             return nodeBT;
         }
 
         return (left != null) ? left : right;
+    }
+
+    void printLeafNodes(NodeBT node) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            System.out.println(node.data + " ");
+        }
+        if(node.right != null){
+            printLeafNodes(node.right);
+        }
+        if(node.left != null){
+            printLeafNodes(node.left);
+        }
     }
 }

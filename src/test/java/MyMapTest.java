@@ -1,15 +1,14 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MyMapTest {
+class MyMapTest {
     private MyMap<String, String> myMap;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         myMap = new MyMap<>();
         myMap.put("ION", "ION");
         myMap.put("ALEX", "ION");
@@ -18,7 +17,7 @@ public class MyMapTest {
 
     @Test
     @DisplayName("Check unique")
-    public void testMyMap() {
+    void testMyMap() {
         myMap.put("ALEX", "ION");
         assertNotNull(myMap);
         assertEquals(3, myMap.size());

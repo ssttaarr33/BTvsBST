@@ -1,24 +1,22 @@
-import java.util.Map;
-
-public class MyMap<K, V> {
-    private HashEntry<K, V>[] buckets;
+class MyMap<K, V> {
+    private HashEntry[] buckets;
     private static final int INITIAL_CAPACITY = 1 << 4;
 
     private int size = 0;
 
-    public MyMap() {
+    MyMap() {
         this(INITIAL_CAPACITY);
     }
 
-    public MyMap(int capacity) {
+    private MyMap(int capacity) {
         this.buckets = new HashEntry[capacity];
     }
 
-    public void put(K key, V value) {
+    void put(K key, V value) {
         HashEntry<K, V> entry = new HashEntry<>(key, value, null);
         int bucket = getHash(key) % getBucketSize();
 
-        HashEntry<K, V> existing = buckets[bucket];
+        HashEntry existing = buckets[bucket];
         if (existing == null) {
             buckets[bucket] = entry;
             size++;
@@ -39,12 +37,12 @@ public class MyMap<K, V> {
         }
     }
 
-    public V get(K key) {
-        HashEntry<K, V> bucket = buckets[getHash(key) % getBucketSize()];
+    V get(K key) {
+        HashEntry bucket = buckets[getHash(key) % getBucketSize()];
 
         while (bucket != null) {
             if (bucket.key.equals(key)) {
-                return bucket.value;
+                return (V) bucket.value;
             }
             bucket = bucket.next;
         }
@@ -59,7 +57,7 @@ public class MyMap<K, V> {
         return buckets.length;
     }
 
-    public int size() {
+    int size() {
         return size;
     }
 }

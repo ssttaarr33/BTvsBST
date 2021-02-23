@@ -37,6 +37,7 @@ public class NodeBTTest {
     @Test
     @DisplayName("LCA for BT tree from node")
     public void testLCABTFromNode() {
+        nodeBT.printLeafNodes(nodeBT);
         assertEquals(2, nodeBT.getLCAFromNode(nodeBT, 4, 5).data);
         assertEquals(1, nodeBT.getLCAFromNode(nodeBT, 4, 6).data);
         assertEquals(1, nodeBT.getLCAFromNode(nodeBT, 3, 4).data);
