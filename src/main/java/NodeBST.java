@@ -1,12 +1,12 @@
-public class NodeBST {
-    NodeBST left, right;
+class NodeBST {
+    private NodeBST left, right;
     int data;
 
-    public NodeBST(int data) {
+    NodeBST(int data) {
         this.data = data;
     }
 
-    public void insert(int value) {
+    void insert(int value) {
         if (value <= data) {
             if (left == null) {
                 left = new NodeBST(value);
@@ -22,7 +22,7 @@ public class NodeBST {
         }
     }
 
-    public boolean contains(int value) {
+    boolean contains(int value) {
         if (value == data) {
             return true;
         } else if (value < data) {
