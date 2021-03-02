@@ -12,6 +12,9 @@ public class PolygonAlgo {
     86 86 86 86
     100 200 100 200
     -100 200 -100 200
+
+    2 squares 2 rectangles 2 other polys
+    expected output: 2 2 2
      */
     private int squares = 0;
     private int rectangles = 0;
