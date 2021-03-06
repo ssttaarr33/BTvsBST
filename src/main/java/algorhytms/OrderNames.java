@@ -17,36 +17,6 @@ Output: [“Peter”, “Raymond”, “Daniel”, “Louie”, “Esteban”, �
 There should be only one solution, so the first element is unique.
  */
 public class OrderNames {
-    private NodeName NodeName;
-
-    public List<String> orderNames(List<String> names) {
-        List<String> orderedNames = new ArrayList<>();
-        String head = "";
-        for (String name : names) {
-            for (String otherName : names) {
-                if (name != otherName) {
-                    if (name.charAt(0) != otherName.charAt(otherName.length() - 1)) {
-                        head = name;
-
-                    }
-                }
-            }
-        }
-        orderedNames.add(head);
-        String finalHead = head;
-        String finalHead1 = finalHead;
-        List<String> collect = names.stream().filter(name -> !name.equals(finalHead1)).collect(Collectors.toList());
-        for (String name : collect) {
-            if (name != finalHead && !orderedNames.contains(name)) {
-                if (finalHead.charAt(finalHead.length() - 1) == name.charAt(0)) {
-                    orderedNames.add(name);
-                    finalHead = name;
-                }
-            }
-        }
-        return orderedNames;
-    }
-
     public List<String> orderNamesLinkedList(List<String> names) {
         NodeName node = new NodeName(names.get(0));
         names = names.subList(1, names.size());
