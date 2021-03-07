@@ -20,10 +20,10 @@ public class SortHotels {
                 "Very friendly staff and good cost-benefit ratio. Its location is a bit far from citycenter.")));
 
         List<HotelRating> hotelRatings = sortHotels(words, ratings);
-        hotelRatings.stream().forEach(hotel -> System.out.println(hotel.id));
+        hotelRatings.forEach(hotel -> System.out.println(hotel.id));
     }
 
-    public static List<HotelRating> sortHotels(String keyWords, List<Hotel> ratingReviews) {
+    private static List<HotelRating> sortHotels(String keyWords, List<Hotel> ratingReviews) {
         String[] keyWordsArray = keyWords.split(" ");
         return ratingReviews.stream().map(hotel -> {
             long wordsMatch = hotel.getReviews().stream()
